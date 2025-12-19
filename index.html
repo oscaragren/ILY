@@ -1,0 +1,214 @@
+  <!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Världens bästa Lisa</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson@3"></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="floating-hearts">
+            <span class="floating-heart">❤️</span>
+            <span class="floating-heart">💕</span>
+            <span class="floating-heart">💖</span>
+            <span class="floating-heart">💗</span>
+            <span class="floating-heart">💝</span>
+            <span class="floating-heart">❤️</span>
+            <span class="floating-heart">💕</span>
+            <span class="floating-heart">💖</span>
+            <span class="floating-heart">💗</span>
+            <span class="floating-heart">💝</span>
+            <span class="floating-heart">❤️</span>
+            <span class="floating-heart">💕</span>
+            <span class="floating-heart">💖</span>
+            <span class="floating-heart">💗</span>
+            <span class="floating-heart">💝</span>
+            <span class="floating-heart">❤️</span>
+            <span class="floating-heart">💕</span>
+            <span class="floating-heart">💖</span>
+            <span class="floating-heart">💗</span>
+            <span class="floating-heart">💝</span>
+        </div>
+        <div class="hero-content">
+            <div class="heart-icon">❤️</div>
+            <h1>Världens bästa <span class="name-placeholder">Lisa</span></h1>
+            <p class="hero-intro">God jul världens bästa Lisa, min Lisa. Här har jag samlat det som gör dig så fantastisk, händelser från året och kanske en julklapp i slutet. Jag älskar dig!</p>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">↓</div>
+            <span class="scroll-text">Scrolla ner</span>
+        </div>
+    </section>
+
+    <!-- Reasons Section -->
+    <section id="reasons">
+        <div class="container">
+            <h2>Jag älskar dig för att du är du, och du är fantastisk❣️</h2>
+            <h3>Du är underbar på alla möjliga sätt och här ett axplock av det som gör dig bäst i världen.</h3>
+            <!---<p class="section-subtitle">Scrolla eller låt ödet välja en ✨</p>-->
+            <div id="reasons-grid" class="reasons-grid">
+                <!-- Reasons will be dynamically inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Carousel -->
+    <section id="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-track" id="carousel-track">
+                <!-- Images will be dynamically inserted here by JavaScript -->
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-btn prev-btn" id="carousel-prev">‹</button>
+            <input type="range" class="carousel-slider" id="carousel-slider" min="0" max="100" value="0">
+            <button class="carousel-btn next-btn" id="carousel-next">›</button>
+        </div>
+    </section>
+
+    <!-- Memories Section -->
+    <section id="memories">
+        <div class="container">
+            <h2>Några ögonblick som jag aldrig kommer glömma❤️</h2>
+            <!--<p class="section-subtitle">De ögonblick jag spelar upp i huvudet</p>-->
+            <div class="timeline">
+                <!-- CUSTOMIZE: Replace these memories with your own, including dates -->
+                <div class="timeline-item">
+                    <div class="timeline-date">01/06/25</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <p>Första gången då vi konstaterade vi ville vara <span class="highlight">mer än vänner</span> och den <span class="highlight">första kyssen</span>.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">08/06/25</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <p>Frukost på hotell i Västerås, en promenad längs vattnet och när jag blev <span class="highlight">din pojkvän och du min flickvän</span>.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">20/06/25</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <p>Midsommarafton, min första gång i Lidköping och <span class="highlight">vår första bild tillsammans</span> i kransar och solsken.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">28/07/25</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <p><span class="highlight">Trerättersmiddag</span>, ödla som rymmer och dagen innan krabbfiske i Smögen.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">04/08/25</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <p>Bruket i Wiared med <span class="highlight">glamping</span>, jacuzzi, bada i sjön, egengjord pizza och massa mys.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">15/08/25</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <p>Vi vann 5 balleringapaket, en ful keps och några Pepsi Max med limesmak efter en <span class="highlight">dejt på K9</span> i Västerås (som slutade i magsjuka hehe...).</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">26/09/25</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <p><span class="highlight">Spa på Jacy'z</span> i Göteborg, bara vi två - du och jag.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">4/10/25</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <p><span class="highlight">En helg på Bosön tillsammans</span>  i danssporten tecken. Vi roddade ihop ett läger för massa ungdomar, inte illa alls.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">12/11/25</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <p>En magisk födelsedag med världens bästa frukost, fin födelsedagssång och framför allt så fick jag vakna upp med <span class="highlight">världens bästa sällskap</span>.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">29/11/25</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <p><span class="highlight">Julmarknad utanför Lidköping</span> i lite småkallt väder men med fantastiska bakverk som i alla fall värmde hjärtat. Det är helt otroligt hur bra du fick till det.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">13/12/25</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <p>Flyg till Ungern och Budapest för <span class="highlight">VM i Stage Dance</span> där vi fick fantastiska dagar på julmarkand och gympahall. En enastående prestation fick vi vittna också, du kan dansa du.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map-section">
+        <div class="container">
+            <h2>Du och jag, ut i världen❤️</h2>
+            <h3>Bäst är nog bredvid dig, oavsett var man befinner dig i världen. Nog ska vi utforska den tillammans, ellerhur? Hit vill jag resa med dig✈️</h3>
+            <!---<p class="section-subtitle">För det här är bara början</p>-->
+            <div class="map-container">
+                <div class="map-background">
+                    <svg id="world-map-svg"></svg>
+                    <!-- Map markers will be dynamically inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Boogie Course Reveal Section -->
+    <section id="bugg-section">
+        <div class="container">
+            <div class="gift-container">
+                <div class="gift-box">
+                    <div class="gift-lid" id="gift-lid">
+                        <div class="gift-bow">
+                            <div class="bow-center">🎀</div>
+                            <div class="bow-left"></div>
+                            <div class="bow-right"></div>
+                        </div>
+                        <div class="gift-ribbon-horizontal"></div>
+                        <div class="gift-ribbon-vertical"></div>
+                    </div>
+                    <div class="gift-content" id="gift-content">
+                        <h2>God jul min kärlek💝</h2>
+                        <p class="revealed-text">
+                            Den 17-18/1 är du välkommen till Kolbäck för då ska vi gå en intensivkurs i boogie, äta middag och bara ha det trevligt tillsammans!🕺💃
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Note -->
+    <section id="closing">
+        <div class="container">
+            <p class="closing-message">Du är min kärlek. Mitt hjärta. Jag älskar dig.</p>
+            <p class="signature">
+            Goooood jul! · <span class="date-placeholder">24 december 2025</span>
+            </p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
