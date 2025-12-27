@@ -58,6 +58,119 @@ body {
     animation: backgroundShift 10s ease-in-out infinite;
 }
 
+/* Song Player Container */
+.song-player-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.song-question {
+    color: var(--text-primary);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.play-song-btn {
+    background: linear-gradient(135deg, var(--accent-pink), var(--accent-pink-dark));
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: clamp(0.85rem, 1.3vw, 0.95rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+    font-family: inherit;
+}
+
+.play-song-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+}
+
+.play-song-btn:active {
+    transform: scale(0.98);
+}
+
+.song-player {
+    margin-top: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 0.5s ease-out;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 10px;
+    max-width: 400px;
+}
+
+.song-player iframe,
+.audio-player-iframe {
+    display: block;
+    width: 100%;
+    height: 152px;
+    border: none;
+    border-radius: 8px;
+}
+
+.html5-audio-player {
+    width: 100%;
+    height: 54px;
+    background: var(--card-bg);
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .song-player-container {
+        top: 15px;
+        left: 15px;
+        gap: 8px;
+    }
+    
+    .song-player {
+        max-width: 350px;
+    }
+    
+    .song-player iframe,
+    .audio-player-iframe {
+        height: 152px;
+    }
+}
+
+@media (max-width: 480px) {
+    .song-player-container {
+        top: 10px;
+        left: 10px;
+    }
+    
+    .play-song-btn {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+    }
+    
+    .song-player {
+        max-width: 280px;
+        padding: 8px;
+    }
+    
+    .song-player iframe,
+    .audio-player-iframe {
+        height: 152px;
+    }
+    
+    .html5-audio-player {
+        height: 48px;
+    }
+}
+
 @keyframes backgroundShift {
     0%, 100% {
         background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;

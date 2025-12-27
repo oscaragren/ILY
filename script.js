@@ -468,6 +468,76 @@ function setupPaperDrag() {
     });
 }
 
+// Song player functionality
+function setupSongPlayer() {
+    const playBtn = document.getElementById('play-song-btn');
+    const songPlayer = document.getElementById('song-player');
+    
+    if (!playBtn || !songPlayer) return;
+    
+    // Choose your music source:
+    // Option 1: Spotify (most reliable) - Get track ID from Spotify share link
+    // Example: https://open.spotify.com/track/6iYxkBHyMpsgVxUgfy5fSx -> track ID is "6iYxkBHyMpsgVxUgfy5fSx"
+    const useSpotify = true; // Set to false to use HTML5 audio instead
+    const spotifyTrackId = '6iYxkBHyMpsgVxUgfy5fSx'; // Spotify track ID for "All My Love" by Coldplay
+    
+    // Option 2: HTML5 Audio (if you have the MP3 file)
+    const audioFileUrl = 'audio/all-my-love.mp3'; // Path to your audio file
+    
+    let isPlaying = false;
+    
+    playBtn.addEventListener('click', function() {
+        if (!isPlaying) {
+            if (useSpotify) {
+                // Use Spotify embed (most reliable, no errors)
+                const iframe = document.createElement('iframe');
+                iframe.width = '100%';
+                iframe.height = '152';
+                iframe.src = `https://open.spotify.com/embed/track/${spotifyTrackId}?utm_source=generator&theme=0`;
+                iframe.frameBorder = '0';
+                iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+                iframe.loading = 'lazy';
+                iframe.className = 'audio-player-iframe';
+                iframe.style.borderRadius = '12px';
+                
+                songPlayer.innerHTML = '';
+                songPlayer.appendChild(iframe);
+                songPlayer.style.display = 'block';
+                playBtn.textContent = '⏸ Pausa låt';
+                isPlaying = true;
+            } else {
+                // Use HTML5 audio player (if you have the audio file)
+                const audio = document.createElement('audio');
+                audio.src = audioFileUrl;
+                audio.controls = true;
+                audio.className = 'html5-audio-player';
+                audio.style.cssText = 'width: 100%; outline: none;';
+                
+                const audioContainer = document.createElement('div');
+                audioContainer.style.cssText = 'width: 100%;';
+                audioContainer.appendChild(audio);
+                
+                songPlayer.innerHTML = '';
+                songPlayer.appendChild(audioContainer);
+                songPlayer.style.display = 'block';
+                playBtn.textContent = '⏸ Pausa låt';
+                isPlaying = true;
+                
+                // Auto-play when loaded
+                audio.play().catch(err => {
+                    console.log('Autoplay prevented:', err);
+                });
+            }
+        } else {
+            // Remove the player completely
+            songPlayer.innerHTML = '';
+            songPlayer.style.display = 'none';
+            playBtn.textContent = '▶ Tryck här!';
+            isPlaying = false;
+        }
+    });
+}
+
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Render all reasons
@@ -481,5 +551,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Setup paper drag interaction
     setupPaperDrag();
+    
+    // Setup song player
+    setupSongPlayer();
 });
 
